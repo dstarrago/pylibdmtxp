@@ -37,6 +37,7 @@ ENCODING_SIZE_NAMES = [
 
 # A rectangle
 Rect = namedtuple('Rect', 'left top width height')
+Rect2 = namedtuple('Rect', 'x00 y00 x01 y01 x10 y10 x11 y11')
 
 # Results of reading a barcode
 Decoded = namedtuple('Decoded', 'data rect')
@@ -160,18 +161,22 @@ def _decode_region(decoder, region, corrections, shrink):
             # Coordinates
             p00 = DmtxVector2()
             p11 = DmtxVector2(1.0, 1.0)
-            dmtxMatrix3VMultiplyBy(
-                p00,
-                region.contents.fit2raw
-            )
+            p10 = DmtxVector2(1.0, 0.0)
+            p01 = DmtxVector2(0.0, 1.0)            
+            dmtxMatrix3VMultiplyBy(p00, region.contents.fit2raw)
             dmtxMatrix3VMultiplyBy(p11, region.contents.fit2raw)
-            x0 = int((shrink * p00.X) + 0.5)
-            y0 = int((shrink * p00.Y) + 0.5)
-            x1 = int((shrink * p11.X) + 0.5)
-            y1 = int((shrink * p11.Y) + 0.5)
+            dmtxMatrix3VMultiplyBy(p01, region.contents.fit2raw)
+            dmtxMatrix3VMultiplyBy(p10, region.contents.fit2raw)
+            x00 = int((shrink * p00.X) + 0.5)
+            y00 = int((shrink * p00.Y) + 0.5)
+            x11 = int((shrink * p11.X) + 0.5)
+            y11 = int((shrink * p11.Y) + 0.5)
+            x10 = int((shrink * p10.X) + 0.5)
+            y10 = int((shrink * p10.Y) + 0.5)
+            x01 = int((shrink * p01.X) + 0.5)
             return Decoded(
                 string_at(msg.contents.output),
-                Rect(x0, y0, x1 - x0, y1 - y0)
+                Rect2(x00,y00,x01,y01,x10,y10,x11,y11)
             )
         else:
             return None
