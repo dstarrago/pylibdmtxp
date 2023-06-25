@@ -21,11 +21,11 @@ rm -rf .tox && tox
 ### Windows
 
 Save the 32-bit and 64-bit `libdmtx.dll` files to `libdmtx-32.dll` and
-`libdmtx-64.dll` respectively, in the `pylibdmtx` directory.
-The `load_pylibdmtx` function in `wrapper.py` looks for the appropriate `DLL`s.
+`libdmtx-64.dll` respectively, in the `pylibdmtxp` directory.
+The `load_pylibdmtxp` function in `wrapper.py` looks for the appropriate `DLL`s.
 The appropriate `DLL` is packaged up into the wheel build and is installed
 alongside the package source. This strategy allows the same method to be used
-when `pylibdmtx` is run from source, as an installed package and when included
+when `pylibdmtxp` is run from source, as an installed package and when included
 in a frozen binary.
 
 ## Releasing
@@ -36,7 +36,7 @@ in a frozen binary.
     contain the appropriate `libdmtx.dll`.
 
     ```
-    rm -rf build dist MANIFEST.in pylibdmtx.egg-info
+    rm -rf build dist MANIFEST.in pylibdmtxp.egg-info
     cp MANIFEST.in.all MANIFEST.in
     ./setup.py bdist_wheel
 
@@ -44,11 +44,11 @@ in a frozen binary.
     ./setup.py bdist_wheel --plat-name=win32
 
     # Remove these dirs to prevent win32 DLL from being included in win64 build
-    rm -rf build pylibdmtx.egg-info
+    rm -rf build pylibdmtxp.egg-info
     cat MANIFEST.in.all MANIFEST.in.win64 > MANIFEST.in
     ./setup.py bdist_wheel --plat-name=win_amd64
 
-    rm -rf build MANIFEST.in pylibdmtx.egg-info
+    rm -rf build MANIFEST.in pylibdmtxp.egg-info
     ```
 
 2. Release to pypitest (see https://packaging.python.org/guides/using-testpypi/)
@@ -59,7 +59,7 @@ in a frozen binary.
 
 3. Test the release to pypitest
 
-    * Check https://testpypi.python.org/pypi/pylibdmtx/
+    * Check https://testpypi.python.org/pypi/pylibdmtxp/
 
     * If you are on Windows
 
@@ -76,7 +76,7 @@ in a frozen binary.
     ```
 
     * Pillow for tests and `read_datamatrix`. We can't use the
-    `pip install pylibdmtx[scripts]` form here because `Pillow` will not be
+    `pip install pylibdmtxp[scripts]` form here because `Pillow` will not be
     on testpypi.python.org
 
     ```
@@ -86,7 +86,7 @@ in a frozen binary.
     * Install the package itself
 
     ```
-    pip install --index https://testpypi.python.org/simple pylibdmtx
+    pip install --index https://testpypi.python.org/simple pylibdmtxp
     ```
 
     * Test
@@ -102,7 +102,7 @@ in a frozen binary.
     twine upload dist/*
     ```
 
-    * Check https://pypi.python.org/pypi/pylibdmtx/
+    * Check https://pypi.python.org/pypi/pylibdmtxp/
 
     * Install!
 
