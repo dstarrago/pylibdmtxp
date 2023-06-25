@@ -22,7 +22,7 @@ def readme():
 
 
 setup_data = {
-    'name': 'pylibdmtx',
+    'name': 'pylibdmtxp',
     'version': pylibdmtx.__version__,
     'author': 'Lawrence Hudson',
     'author_email': 'quicklizard@googlemail.com',
