@@ -9,7 +9,8 @@ SCRIPTS = ['read_datamatrix', 'write_datamatrix']
 # Optional dependency
 PILLOW = 'Pillow>=3.2.0'
 
-URL = 'https://github.com/NaturalHistoryMuseum/pylibdmtx/'
+URL = 'https://github.com/dstarrago/pylibdmtxp/'
+
 
 
 def readme():
