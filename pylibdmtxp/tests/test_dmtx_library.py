@@ -107,7 +107,7 @@ class TestLoad(unittest.TestCase):
 class TestWindowsFname(unittest.TestCase):
     def setUp(self):
         self.addCleanup(patch.stopall)
-        self.sys = patch('pylibdmtx.dmtx_library.sys', autospec=True).start()
+        self.sys = patch('pylibdmtxp.dmtx_library.sys', autospec=True).start()
 
     def test_32bit(self):
         self.sys.maxsize = 2**32
