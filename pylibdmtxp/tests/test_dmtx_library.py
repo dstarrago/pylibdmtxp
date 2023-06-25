@@ -8,7 +8,7 @@ except ImportError:
     # Python 2
     from mock import call, patch
 
-from pylibdmtx import dmtx_library
+from pylibdmtxp import dmtx_library
 
 
 @unittest.skip("skipping test")
@@ -16,16 +16,16 @@ class TestLoad(unittest.TestCase):
     def setUp(self):
         self.addCleanup(patch.stopall)
         self.cdll = patch(
-            'pylibdmtx.dmtx_library.cdll', autospec=True
+            'pylibdmtxp.dmtx_library.cdll', autospec=True
         ).start()
         self.find_library = patch(
-            'pylibdmtx.dmtx_library.find_library', autospec=True
+            'pylibdmtxp.dmtx_library.find_library', autospec=True
         ).start()
         self.platform = patch(
-            'pylibdmtx.dmtx_library.platform', autospec=True
+            'pylibdmtxp.dmtx_library.platform', autospec=True
         ).start()
         self.windows_fname = patch(
-            'pylibdmtx.dmtx_library._windows_fname', autospec=True,
+            'pylibdmtxp.dmtx_library._windows_fname', autospec=True,
             return_value='dll fname'
         ).start()
 
