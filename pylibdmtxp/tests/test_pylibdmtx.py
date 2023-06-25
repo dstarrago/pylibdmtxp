@@ -22,10 +22,10 @@ try:
 except ImportError:
     imageio = None
 
-from pylibdmtx.pylibdmtx import (
+from pylibdmtxp.pylibdmtx import (
     decode, encode, Decoded, Encoded, Rect, EXTERNAL_DEPENDENCIES
 )
-from pylibdmtx.pylibdmtx_error import PyLibDMTXError
+from pylibdmtxp.pylibdmtx_error import PyLibDMTXError
 
 
 TESTDATA = Path(__file__).parent
@@ -100,7 +100,7 @@ class TestDecode(unittest.TestCase):
         self.assertEqual(1, len(EXTERNAL_DEPENDENCIES))
         self.assertIn('libdmtx', EXTERNAL_DEPENDENCIES[0]._name)
 
-    @patch('pylibdmtx.pylibdmtx.dmtxImageCreate')
+    @patch('pylibdmtxp.pylibdmtx.dmtxImageCreate')
     def test_dmtxImageCreate_failed(self, dmtxImageCreate):
         dmtxImageCreate.return_value = None
         self.assertRaisesRegex(
@@ -108,7 +108,7 @@ class TestDecode(unittest.TestCase):
         )
         self.assertEqual(1, dmtxImageCreate.call_count)
 
-    @patch('pylibdmtx.pylibdmtx.dmtxDecodeCreate')
+    @patch('pylibdmtxp.pylibdmtx.dmtxDecodeCreate')
     def test_dmtxDecodeCreate_failed(self, dmtxDecodeCreate):
         dmtxDecodeCreate.return_value = None
         self.assertRaisesRegex(
