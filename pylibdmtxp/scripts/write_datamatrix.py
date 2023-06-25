@@ -4,8 +4,8 @@ from __future__ import print_function
 import argparse
 import sys
 
-import pylibdmtx
-from pylibdmtx.pylibdmtx import (
+import pylibdmtxp
+from pylibdmtxp.pylibdmtx import (
     encode, ENCODING_SIZE_NAMES, ENCODING_SCHEME_NAMES
 )
 
