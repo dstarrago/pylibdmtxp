@@ -12,8 +12,8 @@ try:
 except ImportError:
     from io import StringIO
 
-from pylibdmtx.scripts.read_datamatrix import main as main_read
-from pylibdmtx.scripts.write_datamatrix import main as main_write
+from pylibdmtxp.scripts.read_datamatrix import main as main_read
+from pylibdmtxp.scripts.write_datamatrix import main as main_write
 
 
 @contextmanager
