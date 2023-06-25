@@ -6,8 +6,8 @@ source ./venv/bin/activate
 pip install -U pip
 pip install -r requirements.txt
 
-python -m pytest --verbose --cov=pylibdmtx --cov-report=term-missing --cov-report=html pylibdmtx
-python -m pylibdmtx.scripts.read_datamatrix pylibdmtx/tests/datamatrix.png
+python -m pytest --verbose --cov=pylibdmtxp --cov-report=term-missing --cov-report=html pylibdmtxp
+python -m pylibdmtxp.scripts.read_datamatrix pylibdmtxp/tests/datamatrix.png
 ```
 
 ### Test matrix of supported Python versions
@@ -107,5 +107,5 @@ in a frozen binary.
     * Install!
 
     ```
-    pip install pylibdmtx[scripts]
+    pip install pylibdmtxp[scripts]
     ```

@@ -50,8 +50,8 @@ Install this Python wrapper; use the second form to install dependencies of the
 
 ::
 
-   pip install pylibdmtx
-   pip install pylibdmtx[scripts]
+   pip install pylibdmtxp
+   pip install pylibdmtxp[scripts]
 
 Example usage
 -------------
@@ -60,9 +60,9 @@ The ``decode`` function accepts instances of ``PIL.Image``.
 
 ::
 
-   >>> from pylibdmtx.pylibdmtx import decode
+   >>> from pylibdmtxp.pylibdmtx import decode
    >>> from PIL import Image
-   >>> decode(Image.open('pylibdmtx/tests/datamatrix.png'))
+   >>> decode(Image.open('pylibdmtxp/tests/datamatrix.png'))
    [Decoded(data='Stegosaurus', rect=Rect(left=5, top=6, width=96, height=95)),
     Decoded(data='Plesiosaurus', rect=Rect(left=298, top=6, width=95, height=95))]
 
@@ -72,7 +72,7 @@ images using `OpenCV <http://opencv.org/>`__.
 ::
 
    >>> import cv2
-   >>> decode(cv2.imread('pylibdmtx/tests/datamatrix.png'))
+   >>> decode(cv2.imread('pylibdmtxp/tests/datamatrix.png'))
    [Decoded(data='Stegosaurus', rect=Rect(left=5, top=6, width=96, height=95)),
     Decoded(data='Plesiosaurus', rect=Rect(left=298, top=6, width=95, height=95))]
 
@@ -80,7 +80,7 @@ You can also provide a tuple ``(pixels, width, height)``
 
 ::
 
-   >>> image = cv2.imread('pylibdmtx/tests/datamatrix.png')
+   >>> image = cv2.imread('pylibdmtxp/tests/datamatrix.png')
    >>> height, width = image.shape[:2]
    >>> decode((image.tobytes(), width, height))
    [Decoded(data='Stegosaurus', rect=Rect(left=5, top=6, width=96, height=95)),
@@ -90,7 +90,7 @@ The ``encode`` function generates an image containing a Data Matrix barcode:
 
 ::
 
-  >>> from pylibdmtx.pylibdmtx import encode
+  >>> from pylibdmtxp.pylibdmtx import encode
   >>> encoded = encode('hello world'.encode('utf8'))
   >>> img = Image.frombytes('RGB', (encoded.width, encoded.height), encoded.pixels)
   >>> img.save('dmtx.png')

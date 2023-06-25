@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import sys
 
-import pylibdmtx
+import pylibdmtxp
 
 
 SCRIPTS = ['read_datamatrix', 'write_datamatrix']
@@ -32,14 +32,14 @@ setup_data = {
     'description': pylibdmtx.__doc__,
     'long_description': readme(),
     'long_description_content_type': 'text/x-rst',
-    'packages': ['pylibdmtx', 'pylibdmtx.scripts', 'pylibdmtx.tests'],
-    'test_suite': 'pylibdmtx.tests',
+    'packages': ['pylibdmtxp', 'pylibdmtxp.scripts', 'pylibdmtxp.tests'],
+    'test_suite': 'pylibdmtxp.tests',
     'scripts': [
-        'pylibdmtx/scripts/{0}.py'.format(script) for script in SCRIPTS
+        'pylibdmtxp/scripts/{0}.py'.format(script) for script in SCRIPTS
     ],
     'entry_points': {
         'console_scripts': [
-            '{0}=pylibdmtx.scripts.{0}:main'.format(script)
+            '{0}=pylibdmtxp.scripts.{0}:main'.format(script)
             for script in SCRIPTS
         ],
     },

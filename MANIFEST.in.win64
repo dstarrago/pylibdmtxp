@@ -1,2 +1,2 @@
-include pylibdmtx/libdmtx-64.dll
-include pylibdmtx/libdmtx-LICENSE.txt
+include pylibdmtxp/libdmtx-64.dll
+include pylibdmtxp/libdmtx-LICENSE.txt
