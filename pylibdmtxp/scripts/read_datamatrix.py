@@ -4,8 +4,8 @@ from __future__ import print_function
 import argparse
 import sys
 
-import pylibdmtx
-from pylibdmtx.pylibdmtx import decode
+import pylibdmtxp
+from pylibdmtxp.pylibdmtx import decode
 
 
 def main(args=None):
